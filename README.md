@@ -88,7 +88,13 @@ You can:
 
 ## ⌨️ Set up GUI activation keys
 
-Setting activation keys is easy as making a
+Setting activation keys is easy as making a local script
+putting in **StarterPlayer>StarterPlayerScripts** and setting like this:
+```lua
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local OverseerClient = require(ReplicatedStorage:WaitForChild("OvCli"))
+Overseer:SetActivationKeys({Enum.KeyCode.F2}) -- You can change from F2 to like RightCtrl...
+```
 
 ## ⚡ Performance
 
