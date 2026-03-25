@@ -86,6 +86,10 @@ You can:
 
 ---
 
+## ⌨️ Set up GUI activation keys
+
+Setting activation keys is easy as making a
+
 ## ⚡ Performance
 
 Built with efficiency in mind:
