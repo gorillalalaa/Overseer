@@ -65,6 +65,8 @@ return{
 			plr:Kick(reason)
 		end
 	end,
+	-- If you need to do operation only or client or both you can add ClientRun and same
+	-- procedure with ServerRun
 }
 ```
 
