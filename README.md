@@ -41,17 +41,30 @@ local Overseer = require(path.to.overseer)
 Each command should be its own module. Example:
 
 ```lua
-return {
-    Name = "kick",
-    Description = "Kicks a player",
-    RankRequired = 1,
-
-    Execute = function(player, args)
-        local target = args[1]
-        if target then
-            target:Kick("You have been kicked.")
-        end
-    end
+return{
+	name = "kick",
+	aliases = {"k"}, -- You can add as many as you want
+	desc = "Kicks a player",
+	rank = 2,
+	args = {
+		{
+			type = "player",
+			name = "Player(s)",
+			desc = "The player(s) to kick",
+		},
+		{
+			type = "string",
+			name = "Reason",
+			desc = "The reason for the kick",
+			optional = true,
+		},
+	},
+	ServerRun = function(executor, players, reason)
+		if not players then return end
+		for _, plr in players do
+			plr:Kick(reason)
+		end
+	end,
 }
 ```
 
