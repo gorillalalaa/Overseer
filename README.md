@@ -93,7 +93,8 @@ putting in **StarterPlayer>StarterPlayerScripts** and setting like this:
 ```lua
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local OverseerClient = require(ReplicatedStorage:WaitForChild("OvCli"))
-Overseer:SetActivationKeys({Enum.KeyCode.F2}) -- You can change from F2 to like RightCtrl...
+OverseerClient:Init()
+OverseerClient:SetActivationKeys({Enum.KeyCode.F2}) -- You can change from F2 to like RightCtrl...
 ```
 
 ## ⚡ Performance
