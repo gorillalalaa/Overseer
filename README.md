@@ -21,96 +21,10 @@ A modular admin command framework built for scalability, performance, and ease o
 * **Clean Architecture**
   Separation of concerns between core systems, commands, and utilities.
 
----
-
-## 🚀 Getting Started
-
-1. Place the framework into your project.
-2. Require the main module with
-```lua
-local Overseer = require(path.to.overseer)
--- other code...
-```
-3. Configure your ranks in Overseer.OvShared.Config.Ranks
-4. Start adding commands!
+* **Hook System**
+  Run custom logic before or after command execution for logging, validation, or extending behavior without modifying commands.
 
 ---
-
-## 🧩 Creating a Command
-
-Each command should be its own module. Example:
-
-```lua
-return{
-	name = "kick",
-	aliases = {"k"}, -- You can add as many as you want
-	desc = "Kicks a player",
-	rank = 2,
-	args = {
-		{
-			type = "player",
-			name = "Player(s)",
-			desc = "The player(s) to kick",
-		},
-		{
-			type = "string",
-			name = "Reason",
-			desc = "The reason for the kick",
-			optional = true,
-		},
-	},
-	ServerRun = function(executor, players, reason)
-		if not players then return end
-		for _, plr in players do
-			plr:Kick(reason)
-		end
-	end,
-	-- If you need to do operation only or client or both you can add ClientRun and same
-	-- procedure with ServerRun
-}
-```
-
-### Each module should be put in a folder and then to register them you should run
-
-```lua
-local Overseer = require(path.to.overseer)
-Overseer:RegisterCommandsIn(path.to.commandfolder)
-```
-
-### To register default commands you should do
-
-```lua
-local Overseer = require(path.to.overseer)
-Overseer:RegisterDefaultCommands()
-```
-
----
-
-## 🔐 Rank System
-
-The framework uses a numeric rank system:
-
-* Lower value = higher permission (e.g. Owner = 0)
-* Higher value = lower permission (e.g. Utilities = 5)
-
-You can:
-
-* Assign users to ranks
-* Retrieve ranks dynamically
-* Get labels for display
-
----
-
-## ⌨️ Set up GUI activation keys
-
-Setting activation keys is easy as making a local script
-putting in **StarterPlayer>StarterPlayerScripts** and setting like this:
-```lua
-local ReplicatedStorage = game:GetService("ReplicatedStorage")
-local OverseerClient = require(ReplicatedStorage:WaitForChild("OvCli"))
-OverseerClient:Init()
-OverseerClient:SetActivationKeys({Enum.KeyCode.F2}) -- You can change from F2 to like RightCtrl...
-```
 
 ## ⚡ Performance
 
