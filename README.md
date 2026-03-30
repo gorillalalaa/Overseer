@@ -2,7 +2,7 @@
 
 A modular admin command framework built for scalability, performance, and ease of use in Roblox projects. This system is designed to keep your codebase clean while allowing you to expand functionality effortlessly.
 
-# Visit Overseer Docs [Overseer Docs](https://gorillalalaa.github.io/)
+# [Visit Overseer Docs](https://gorillalalaa.github.io/)
 ---
 
 ## ✨ Features
